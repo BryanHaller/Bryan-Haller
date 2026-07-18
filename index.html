@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/xqSJ270x/1784376573212.jpg">
+<title>Bryan Haller | Site Oficial</title>
+<meta name="description" content="Conheça o universo musical de Bryan Haller, explore sua discografia, assista aos clipes oficiais no YouTube e agende sua consulta de cartas.">
+
+<!-- Foto de compartilhamento (aparece grande no WhatsApp, Facebook, etc) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bryan Haller | Site Oficial">
+<meta property="og:description" content="Conheça o universo musical de Bryan Haller, explore sua discografia, assista aos clipes oficiais no YouTube e agende sua consulta de cartas.">
+<meta property="og:image" content="https://i.ibb.co/9HKDVQdX/file-0000000087b4720e9af3eda19eb53dc5.png">
+<meta property="og:image:width" content="1915">
+<meta property="og:image:height" content="821">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bryan Haller | Site Oficial">
+<meta name="twitter:description" content="Conheça o universo musical de Bryan Haller, explore sua discografia, assista aos clipes oficiais no YouTube e agende sua consulta de cartas.">
+<meta name="twitter:image" content="https://i.ibb.co/9HKDVQdX/file-0000000087b4720e9af3eda19eb53dc5.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --void: #060a14;
+    --void-2: #0b1120;
+    --ice: #bfe3ff;
+    --ice-2: #7fb8e8;
+    --frost: #eef7ff;
+    --ember: #ff7a3d;
+    --ember-2: #ff4d1c;
+    --gold: #d8b25c;
+    --violet: #5a4d78;
+    --text-dim: rgba(238,247,255,0.62);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--void);
+    color: var(--frost);
+    font-family:'Manrope', sans-serif;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  ::selection{ background:var(--ember); color:var(--void); }
+
+  a{ color:inherit; text-decoration:none; }
+
+  /* ---------- Loading intro ---------- */
+  #intro{
+    position:fixed; inset:0; background:var(--void);
+    display:flex; align-items:center; justify-content:center;
+    z-index:9999;
+    transition: opacity 1.1s ease, visibility 1.1s ease;
+  }
+  #intro.hide{ opacity:0; visibility:hidden; pointer-events:none; }
+  .intro-mark{
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    font-size:clamp(2.2rem, 8vw, 4rem);
+    letter-spacing:0.02em;
+    color:var(--frost);
+    opacity:0;
+    animation: introFade 1.6s ease forwards;
+    text-align:center;
+    line-height:1;
+  }
+  .intro-mark span{
+    display:block;
+    background:linear-gradient(120deg, var(--ice), var(--frost) 40%, var(--ember) 90%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  @keyframes introFade{
+    0%{ opacity:0; filter:blur(14px); letter-spacing:0.4em; }
+    55%{ opacity:1; filter:blur(0); letter-spacing:0.02em; }
+    100%{ opacity:1; }
+  }
+
+  /* ---------- Ambient particle canvases ---------- */
+  #fx-canvas{
+    position:fixed; inset:0; width:100%; height:100%;
+    pointer-events:none; z-index:1; mix-blend-mode:screen;
+  }
+
+  /* ---------- Layout shells ---------- */
+  .wrap{ position:relative; z-index:2; }
+  section{ position:relative; }
+
+  .hero{
+    min-height:100vh;
+    display:flex; flex-direction:column; align-items:center;
+    padding: 2vh 6vw 1.2vh;
+    text-align:center;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(127,184,232,0.14), transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 90%, rgba(255,122,61,0.08), transparent 60%),
+      var(--void);
+  }
+
+  .name{
+    font-family:'Fredoka', sans-serif;
+    font-weight:700;
+    font-size:clamp(1.9rem, 9.5vw, 3.6rem);
+    line-height:1;
+    letter-spacing:-0.01em;
+    white-space:nowrap;
+    color: var(--frost);
+    filter: drop-shadow(0 0 20px rgba(238,247,255,0.2));
+    opacity:0; transform: translateY(30px);
+    animation: riseIn 1.1s cubic-bezier(.16,.8,.3,1) forwards;
+    animation-delay:0.15s;
+  }
+
+  @keyframes riseIn{ to{ opacity:1; transform:translateY(0); } }
+
+  .portrait-stage{
+    position:relative;
+    width:min(85vw, 450px);
+    aspect-ratio: 16/9;
+    margin: 2vh auto 3vh;
+    opacity:0; transform:scale(0.92);
+    animation: riseIn 1.2s cubic-bezier(.16,.8,.3,1) forwards;
+    animation-delay:0.5s;
+  }
+
+  .blob-mask{
+    position:absolute; inset:0;
+    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
+    overflow:hidden;
+    box-shadow:
+      0 0 0 1px rgba(191,227,255,0.18),
+      0 0 60px rgba(127,184,232,0.35),
+      0 0 140px rgba(127,184,232,0.18),
+      inset 0 0 60px rgba(6,10,20,0.5);
+    animation: blobShift 9s ease-in-out infinite;
+    background:#0b1120;
+  }
+  @keyframes blobShift{
+    0%,100%{ border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%; }
+    33%{ border-radius: 45% 55% 40% 60% / 55% 40% 60% 45%; }
+    66%{ border-radius: 58% 42% 62% 38% / 40% 58% 42% 60%; }
+  }
+  .blob-mask img{
+    width:100%; height:100%; object-fit:cover;
+    display:block;
+    image-rendering:auto;
+  }
+  .blob-mask::after{
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(191,227,255,0.14), transparent 55%);
+    mix-blend-mode: screen; pointer-events:none;
+  }
+
+
+
+  .role-tag{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(0.9rem, 2.2vw, 1.2rem);
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color: var(--ice);
+    opacity:0.85;
+    margin-bottom: 1.4vh;
+  }
+
+  /* CTA buttons */
+  .cta-group{ display:flex; flex-direction:column; align-items:center; gap:1.2rem; width:100%; max-width:420px; }
+
+  .btn{
+    position:relative;
+    display:block;
+    width:100%;
+    padding: 1.15rem 1.5rem;
+    border-radius: 14px;
+    font-family:'Fredoka', sans-serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.02em;
+    text-align:center;
+    cursor:pointer;
+    overflow:hidden;
+    border:1px solid transparent;
+    transition: transform 0.35s cubic-bezier(.16,.8,.3,1), box-shadow 0.35s ease;
+  }
+  .btn::before{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: translateX(-120%);
+    transition: transform 0.7s ease;
+  }
+  .btn:hover::before{ transform: translateX(120%); }
+  .btn:hover{ transform: translateY(-3px); }
+  .btn:active{ transform: translateY(-1px) scale(0.98); }
+
+  .btn-primary{
+    background: linear-gradient(135deg, var(--frost), var(--ice) 60%, var(--ice-2));
+    color: var(--void);
+    box-shadow: 0 8px 30px rgba(127,184,232,0.25);
+  }
+  .btn-primary:hover{ box-shadow: 0 12px 40px rgba(127,184,232,0.4); }
+
+  .btn-ghost{
+    background: rgba(238,247,255,0.04);
+    color: var(--frost);
+    border-color: rgba(238,247,255,0.18);
+  }
+  .btn-ghost:hover{ background: rgba(238,247,255,0.08); border-color: rgba(238,247,255,0.35); }
+
+  .contact-caption{
+    font-size:0.82rem; color: var(--text-dim); letter-spacing:0.03em; margin-top:0.9rem;
+  }
+
+  .scroll-cue{
+    margin-top: 5vh; display:flex; align-items:center; gap:0.9rem;
+    font-family:'Fredoka', sans-serif; font-weight:600; letter-spacing:0.08em;
+    text-transform:uppercase; font-size:0.9rem; color: var(--ice);
+  }
+  .chevrons{ display:flex; flex-direction:column; }
+  .chevrons svg{ animation: chevronPulse 1.8s ease-in-out infinite; }
+  .chevrons svg:nth-child(2){ animation-delay:0.25s; margin-top:-6px; }
+  @keyframes chevronPulse{ 0%,100%{ opacity:0.25; transform:translateY(0);} 50%{ opacity:1; transform:translateY(4px);} }
+
+  /* ---------- Tarot photo (clickable, inline in hero) ---------- */
+  .tarot-link{
+    display:block; width:100%;
+    position:relative; border-radius:18px; overflow:hidden;
+    border:1px solid rgba(216,178,92,0.28);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 36px rgba(90,77,120,0.22);
+    transition: transform 0.35s cubic-bezier(.16,.8,.3,1), box-shadow 0.35s ease;
+  }
+  .tarot-link:hover{ transform: translateY(-3px); box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 46px rgba(90,77,120,0.32); }
+  .tarot-link img{ width:100%; max-height:26vh; object-fit:cover; display:block; }
+  .tarot-link::after{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(180deg, transparent 60%, rgba(6,10,20,0.55));
+    pointer-events:none;
+  }
+  .tarot-hint{
+    position:absolute; right:14px; bottom:12px;
+    font-family:'Fredoka', sans-serif; font-weight:600; font-size:0.78rem;
+    letter-spacing:0.04em; color:var(--frost);
+    background: rgba(6,10,20,0.55); border:1px solid rgba(238,247,255,0.2);
+    padding:0.35rem 0.7rem; border-radius:100px;
+    backdrop-filter: blur(4px);
+  }
+
+  /* ---------- Seam / 3D ridge divider between sections ---------- */
+  .seam{
+    position:relative; height:46px; z-index:2;
+    background: linear-gradient(180deg, rgba(191,227,255,0.05), rgba(0,0,0,0.4) 70%);
+  }
+  .seam::before{
+    content:''; position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(238,247,255,0.08), transparent 40%),
+      linear-gradient(0deg, rgba(0,0,0,0.5), transparent 55%);
+  }
+  .seam::after{
+    content:''; position:absolute; left:0; right:0; top:0; height:3px;
+    background: linear-gradient(90deg, transparent, rgba(191,227,255,0.35), transparent);
+    filter: blur(1px);
+  }
+
+  .reveal{
+    opacity:0; transform:translateY(36px);
+    transition: opacity 0.9s cubic-bezier(.16,.8,.3,1), transform 0.9s cubic-bezier(.16,.8,.3,1);
+  }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+  /* ---------- Discography section ---------- */
+  .disco-section{
+    background: linear-gradient(180deg, var(--void-2), #070b16 55%, var(--void));
+    padding: 5vh 0 8vh;
+    position:relative;
+  }
+  .disco-title{
+    text-align:center; padding: 0 6vw;
+    margin-bottom: 4vh;
+    font-family:'Fredoka', sans-serif; font-weight:700;
+    color: var(--frost);
+  }
+  .disco-title .eyebrow-word{
+    display:block;
+    font-size:clamp(1.1rem, 4vw, 1.6rem);
+    letter-spacing:0.3em;
+    margin-bottom:0.3rem;
+    opacity:0.85;
+  }
+  .disco-title .main-words{
+    display:block;
+    font-size:clamp(1.9rem, 8vw, 3.1rem);
+    letter-spacing:0.01em;
+    white-space:nowrap;
+    text-shadow: 0 0 30px rgba(238,247,255,0.18);
+  }
+
+  .torn-photo{
+    position:relative; width:100%; height:38vh; max-height:340px; overflow:hidden;
+    margin-bottom: 6vh;
+  }
+  .torn-photo img{
+    width:100%; height:100%; object-fit:cover; object-position: 60% 22%; display:block;
+    filter:saturate(0.9) contrast(1.05);
+  }
+  .torn-photo svg.tear{
+    position:absolute; bottom:-1px; left:0; width:100%; height:auto;
+    display:block;
+  }
+  .torn-photo::before{
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(6,10,20,0.15), transparent 30%, transparent 70%, rgba(6,10,20,0.75));
+    pointer-events:none;
+  }
+
+  .track-block{
+    max-width:560px; margin:0 auto; padding:0 6vw; text-align:center;
+  }
+  .track-name{
+    font-family:'Cormorant Garamond', serif; font-size:clamp(2rem, 6vw, 2.8rem);
+    font-style:italic; color:var(--frost); margin-bottom:2.2rem;
+  text-align: left; /* Adicione esta linha */
+}
+
+
+
+  .listen-btn{ margin: 3.5rem auto 0; }
+
+  footer{
+    text-align:center; padding: 5vh 6vw 8vh;
+    color: var(--text-dim); font-size:0.85rem;
+    font-style:italic; font-family:'Cormorant Garamond', serif;
+  }
+
+  @media (min-width: 760px){
+    .cta-group{ max-width:480px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div class="intro-mark"><span>BRYAN</span><span>HALLER</span></div>
+</div>
+
+<canvas id="fx-canvas"></canvas>
+
+<div class="wrap">
+
+  <section class="hero">
+    <h1 class="name">BRYAN HALLER</h1>
+
+    <div class="portrait-stage" id="portraitStage">
+      <div class="blob-mask">
+        <img src="https://i.ibb.co/9HKDVQdX/file-0000000087b4720e9af3eda19eb53dc5.png" alt="Bryan Haller, retrato congelado em bloco de gelo" loading="eager">
+      </div>
+    </div>
+
+    <p class="role-tag">Cantor &amp; Cartomante</p>
+
+    <div class="cta-group">
+      <a class="btn btn-primary reveal" href="https://wa.me/5573991577188?text=Oi%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20pergunta" target="_blank" rel="noopener">Consulta de Cartas</a>
+
+      <a class="tarot-link reveal" href="https://wa.me/5573991577188?text=Oi%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20pergunta" target="_blank" rel="noopener" aria-label="Falar com Bryan Haller no WhatsApp para consulta de cartas">
+        <img src="https://i.ibb.co/FtwRBKN/file-0000000002b471f5be84cb36127b1a9d.png" alt="Mesa de tarô com seis cartas dispostas, taças douradas e velas">
+        <span class="tarot-hint">Fale comigo →</span>
+      </a>
+
+      <div style="width:100%;">
+        <a class="btn btn-ghost reveal" href="mailto:contato@bryanhaller.com.br">Contato &amp; Publicidade</a>
+        <p class="contact-caption">contato@bryanhaller.com.br</p>
+      </div>
+    </div>
+
+    <a href="#discografia" class="scroll-cue">
+      <div class="chevrons">
+        <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      Discografia
+      <div class="chevrons">
+        <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <svg width="20" height="12" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+    </a>
+  </section>
+
+  <div class="seam" aria-hidden="true"></div>
+
+  <section class="disco-section" id="discografia">
+    <h2 class="disco-title reveal"><span class="eyebrow-word">OUÇA</span><span class="main-words">BRYAN HALLER</span></h2>
+
+    <div class="torn-photo reveal">
+      <img src="https://i.ibb.co/7dCNbrqy/cantor-pop-bryan-haller-agachado-de-lado-tijolos-construcao.jpg" alt="Bryan Haller agachado ao lado de uma construção de tijolos">
+      <svg class="tear" viewBox="0 0 1440 90" preserveAspectRatio="none">
+        <path d="M0,40 L60,55 L130,20 L210,60 L290,15 L370,50 L450,10 L540,55 L620,25 L700,60 L790,20 L870,50 L950,15 L1040,55 L1120,25 L1200,60 L1290,20 L1370,50 L1440,30 L1440,90 L0,90 Z" fill="#070b16"/>
+      </svg>
+    </div>
+
+    <div class="track-block">
+      <p class="track-name reveal">Homem Torto</p>
+
+      <div class="video-container reveal" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px;">
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/M472hIevg8g"
+          title="Homem Torto - Kamaitachi (Bryan Haller Cover)"
+          referrerpolicy="strict-origin-when-cross-origin"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+
+      <a class="btn btn-primary listen-btn reveal" href="https://youtu.be/M472hIevg8g" target="_blank" rel="noopener">Ouça Agora →</a>
+    </div>
+  </section>
+
+  <footer>© 2026 Bryan Haller. Todos os direitos reservados.</footer>
+
+</div>
+
+<script>
+// ---------- Intro ----------
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('intro').classList.add('hide'), 500);
+});
+
+// ---------- Scroll reveal ----------
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+revealEls.forEach(el => io.observe(el));
+
+
+
+// ---------- Ambient canvas particles: ice motes + fire embers ----------
+const canvas = document.getElementById('fx-canvas');
+const ctx = canvas.getContext('2d');
+let W, H;
+function resize(){ W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize);
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const particles = [];
+const PCOUNT = reduceMotion ? 0 : (window.innerWidth < 600 ? 55 : 110);
+
+function makeParticle(){
+  return {
+    x: Math.random()*W,
+    y: H + Math.random()*H*0.3,
+    r: 0.4 + Math.random()*0.9,
+    speed: 0.6 + Math.random()*1.6,
+    drift: (Math.random()-0.5) * 0.5,
+    flicker: Math.random()*Math.PI*2,
+    flickerSpeed: 0.08 + Math.random()*0.1,
+    hue: Math.random() < 0.5 ? [255,150,60] : [255,200,120]
+  };
+}
+for(let i=0;i<PCOUNT;i++) particles.push(makeParticle());
+
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach(p => {
+    const prevX = p.x, prevY = p.y;
+    p.y -= p.speed;
+    p.x += p.drift + Math.sin(p.y*0.03 + p.flicker)*0.4;
+    p.flicker += p.flickerSpeed;
+    if(p.y < -10){ Object.assign(p, makeParticle(), { y: H + 10 }); }
+
+    const alpha = 0.4 + Math.max(0, Math.sin(p.flicker))*0.5;
+    const [r,g,b] = p.hue;
+
+    // small bright core
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
+    ctx.fill();
+
+    // short upward trail for a realistic spark streak
+    ctx.beginPath();
+    ctx.moveTo(prevX, prevY);
+    ctx.lineTo(p.x, p.y);
+    ctx.strokeStyle = `rgba(${r},${g},${b},${alpha*0.5})`;
+    ctx.lineWidth = p.r * 0.8;
+    ctx.stroke();
+  });
+  requestAnimationFrame(draw);
+}
+if(!reduceMotion) draw();
+</script>
+
+</body>
+</html>
