@@ -22,7 +22,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -225,6 +225,60 @@
     font-size:0.82rem; color: var(--text-dim); letter-spacing:0.03em; margin-top:0.9rem;
   }
 
+  /* ---------- Live Mode ---------- */
+  #live-btn{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    gap:0.55rem;
+    width:100%;
+    padding:1.15rem 1.5rem;
+    margin-bottom:0.9rem;
+    border-radius:14px;
+    background:linear-gradient(120deg, #ff3b30, #ff6a3d);
+    color:#fff;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+    text-decoration:none;
+    order:-1;
+  }
+  #live-btn .live-dot{
+    width:9px; height:9px; border-radius:50%; background:#fff;
+    animation: liveDotBlink 1.2s ease-in-out infinite;
+  }
+  @keyframes liveDotBlink{ 0%,100%{ opacity:1; } 50%{ opacity:0.25; } }
+  body.is-live #live-btn{
+    display:flex;
+    box-shadow: 0 8px 34px rgba(255,59,48,0.45);
+    animation: livePulse 2.2s ease-in-out infinite;
+  }
+  @keyframes livePulse{
+    0%,100%{ box-shadow: 0 8px 34px rgba(255,59,48,0.45); }
+    50%{ box-shadow: 0 8px 46px rgba(255,59,48,0.7); }
+  }
+
+  /* Quando em live, os outros botões e a foto do tarô encolhem um pouco pra caber tudo */
+  body.is-live .cta-group .btn{
+    padding:0.85rem 1.3rem;
+    font-size:0.95rem;
+    border-radius:12px;
+  }
+  body.is-live .cta-group .tarot-link img{
+    max-height:18vh;
+  }
+  body.is-live .cta-group .tarot-hint{
+    font-size:0.85rem;
+  }
+  body.is-live .cta-group .contact-caption{
+    font-size:0.76rem;
+    margin-top:0.6rem;
+  }
+  body.is-live .cta-group{
+    gap:0.7rem;
+  }
+
   .scroll-cue{
     margin-top: 5vh; display:flex; align-items:center; gap:0.9rem;
     font-family:'Fredoka', sans-serif; font-weight:600; letter-spacing:0.08em;
@@ -244,7 +298,7 @@
     transition: transform 0.35s cubic-bezier(.16,.8,.3,1), box-shadow 0.35s ease;
   }
   .tarot-link:hover{ transform: translateY(-3px); box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 46px rgba(90,77,120,0.32); }
-  .tarot-link img{ width:100%; max-height:26vh; object-fit:cover; display:block; }
+  .tarot-link img{ width:100%; max-height:34vh; object-fit:cover; display:block; }
   .tarot-link::after{
     content:''; position:absolute; inset:0;
     background: linear-gradient(180deg, transparent 60%, rgba(6,10,20,0.55));
@@ -373,7 +427,11 @@
     <p class="role-tag">Cantor &amp; Cartomante</p>
 
     <div class="cta-group">
-      <a class="btn btn-primary reveal" href="https://wa.me/5573991577188?text=Oi%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20pergunta" target="_blank" rel="noopener">Consulta de Cartas</a>
+      <a id="live-btn" href="https://livepix.gg/bryanhaller" target="_blank" rel="noopener">
+        <span class="live-dot"></span> Faça sua pergunta na live
+      </a>
+
+      <a class="btn btn-primary reveal" id="consulta-btn" href="https://wa.me/5573991577188?text=Oi%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20pergunta" target="_blank" rel="noopener">Consulta de Cartas</a>
 
       <a class="tarot-link reveal" href="https://wa.me/5573991577188?text=Oi%2C%20tudo%20bem%3F%20Gostaria%20de%20uma%20pergunta" target="_blank" rel="noopener" aria-label="Falar com Bryan Haller no WhatsApp para consulta de cartas">
         <img src="https://i.ibb.co/FtwRBKN/file-0000000002b471f5be84cb36127b1a9d.png" alt="Mesa de tarô com seis cartas dispostas, taças douradas e velas">
@@ -434,7 +492,25 @@
 
 </div>
 
+<!-- ===================================================== -->
+<!-- EQUIPE: ATIVEM OU DESATIVEM AQUI PARA A LIVE           -->
+<!-- Procurem "const LIVE_MODE" logo abaixo, no <script>.  -->
+<!-- Troquem para true quando a live começar,               -->
+<!-- e para false quando a live terminar.                    -->
+<!-- ===================================================== -->
 <script>
+// =====================================================
+//  MODO LIVE — é só isso que a equipe precisa mexer!
+//  true  = live no ar (mostra botão vermelho, encolhe os outros)
+//  false = live fora do ar (site normal)
+// =====================================================
+const LIVE_MODE = false;
+
+if (LIVE_MODE) {
+  document.body.classList.add('is-live');
+  document.getElementById('consulta-btn').textContent = 'Consulta Completa';
+}
+
 // ---------- Intro ----------
 // Antes esperava o evento "load" (que só dispara depois do iframe do YouTube,
 // fontes e todas as imagens carregarem por completo — daí a demora).
