@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Impede que a foto das cartas de tarô apareça no Google Imagens
+# (as outras fotos do site continuam liberadas normalmente)
+User-agent: Googlebot-Image
+Disallow: /images/739284651027.webp
