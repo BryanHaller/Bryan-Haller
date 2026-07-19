@@ -493,23 +493,25 @@
 </div>
 
 <!-- ===================================================== -->
-<!-- EQUIPE: ATIVEM OU DESATIVEM AQUI PARA A LIVE           -->
-<!-- Procurem "const LIVE_MODE" logo abaixo, no <script>.  -->
-<!-- Troquem para true quando a live começar,               -->
-<!-- e para false quando a live terminar.                    -->
+<!-- EQUIPE: não precisa mais mexer aqui!                    -->
+<!-- O modo live agora é ativado pelo painel modolive.html.  -->
 <!-- ===================================================== -->
 <script>
 // =====================================================
-//  MODO LIVE — é só isso que a equipe precisa mexer!
-//  true  = live no ar (mostra botão vermelho, encolhe os outros)
-//  false = live fora do ar (site normal)
+//  MODO LIVE — lido automaticamente do Firebase.
+//  Quem liga/desliga é o painel "modolive.html".
 // =====================================================
-const LIVE_MODE = false;
-
-if (LIVE_MODE) {
-  document.body.classList.add('is-live');
-  document.getElementById('consulta-btn').textContent = 'Consulta Completa';
-}
+fetch('https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json')
+  .then(res => res.json())
+  .then(liveAtivo => {
+    if (liveAtivo === true) {
+      document.body.classList.add('is-live');
+      document.getElementById('consulta-btn').textContent = 'Consulta Completa';
+    }
+  })
+  .catch(() => {
+    // Se der algum erro de conexão, o site continua normal, sem travar.
+  });
 
 // ---------- Intro ----------
 // Antes esperava o evento "load" (que só dispara depois do iframe do YouTube,

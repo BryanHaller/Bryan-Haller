@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel do Bryan — Modo Live</title>
+<style>
+  body{
+    background:#111; color:white; font-family:sans-serif;
+    text-align:center; padding-top:50px; margin:0;
+  }
+  h2{ font-size:1.3rem; padding:0 1rem; }
+  .btn{
+    padding:20px 40px; font-size:20px; font-weight:bold;
+    border:none; border-radius:8px; cursor:pointer;
+    margin:10px; width:80%; max-width:300px;
+  }
+  .on{ background:#ff4747; color:white; }
+  .off{ background:#333; color:#aaa; }
+  input{
+    padding:12px; font-size:16px; border-radius:8px; border:none;
+    margin-bottom:20px; text-align:center; width:70%; max-width:280px;
+  }
+  #status-envio{ margin-top:20px; font-weight:bold; min-height:1.5em; }
+</style>
+</head>
+<body>
+
+  <h2>Controle de Live — Bryan Haller</h2>
+
+  <input type="password" id="senha" placeholder="Digite a senha"><br>
+
+  <button class="btn on" onclick="mudarStatusLive(true)">🔴 ENTRAR EM LIVE</button><br>
+  <button class="btn off" onclick="mudarStatusLive(false)">⚪ DESLIGAR LIVE</button>
+
+  <p id="status-envio"></p>
+
+<script>
+const SENHA_CORRETA = "050703";
+const FIREBASE_URL = "https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json";
+
+function mudarStatusLive(status) {
+  const senhaDigitada = document.getElementById('senha').value;
+  const statusTexto = document.getElementById('status-envio');
+
+  if (!senhaDigitada) {
+    alert("Digite a senha primeiro!");
+    return;
+  }
+  if (senhaDigitada !== SENHA_CORRETA) {
+    statusTexto.innerText = "Senha incorreta! ❌";
+    statusTexto.style.color = "#ff4747";
+    return;
+  }
+
+  statusTexto.innerText = "Enviando comando...";
+  statusTexto.style.color = "yellow";
+
+  fetch(FIREBASE_URL, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(status)
+  })
+    .then(res => {
+      if (res.ok) {
+        statusTexto.innerText = status
+          ? "Modo Live ATIVADO com sucesso! 🚀"
+          : "Modo Live DESATIVADO! 🔐";
+        statusTexto.style.color = "#47ff47";
+      } else {
+        statusTexto.innerText = "Erro ao salvar. Tenta de novo! ❌";
+        statusTexto.style.color = "#ff4747";
+      }
+    })
+    .catch(() => {
+      statusTexto.innerText = "Erro de conexão. Verifica a internet! ❌";
+      statusTexto.style.color = "#ff4747";
+    });
+}
+</script>
+</body>
+</html>
