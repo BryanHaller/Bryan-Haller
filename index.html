@@ -269,6 +269,7 @@
   }
 
   /* ---------- Live Mode ---------- */
+  /* LINHA 1 — tamanho do botão vermelho "Faça sua pergunta na live" (sempre esse tamanho, não encolhe) */
   #live-btn{
     display:none;
     align-items:center;
@@ -302,12 +303,14 @@
     50%{ box-shadow: 0 8px 46px rgba(255,59,48,0.7); }
   }
 
-  /* Quando em live, os outros botões e a foto do tarô encolhem um pouco pra caber tudo */
+  /* LINHA 2 — tamanho de Consulta e Contato JUNTOS, só quando a live está ativa
+     (o "Ouça Agora" não entra aqui, ele fica lá embaixo, fora desse grupo) */
   body.is-live .cta-group .btn{
     padding:0.85rem 1.3rem;
     font-size:0.95rem;
     border-radius:12px;
   }
+  /* Altura da foto das cartas, só quando a live está ativa (a de cima é pra fora da live) */
   body.is-live .cta-group .tarot-link img{
     max-height:18vh;
   }
@@ -365,6 +368,8 @@
     transition: transform 0.35s cubic-bezier(.16,.8,.3,1), box-shadow 0.35s ease;
   }
   .tarot-link:hover{ transform: translateY(-3px); box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 46px rgba(90,77,120,0.32); }
+  /* Altura da foto das cartas (fora da live). A largura fica sempre 100% de propósito,
+     pra ela ficar sempre alinhada com o botão de cima — só a altura é pra mexer aqui. */
   .tarot-link img{ width:100%; max-height:34vh; object-fit:cover; display:block; }
   .tarot-link::after{
     content:''; position:absolute; inset:0;
