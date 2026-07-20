@@ -96,6 +96,6 @@ if (blobEl) {
   window.addEventListener('scroll', () => {
     blobEl.classList.add('is-scrolling');
     clearTimeout(scrollTimer);
-    scrollTimer = setTimeout(() => blobEl.classList.remove('is-scrolling'), 150);
+    scrollTimer = setTimeout(() => blobEl.classList.remove('is-scrolling'), 400);
   }, { passive: true });
 }
