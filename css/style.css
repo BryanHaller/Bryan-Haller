@@ -97,6 +97,7 @@
     position:absolute; inset:0;
     border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
     overflow:hidden;
+    contain: paint; /* isola o repaint do blob, sem "vazar" custo pro resto da página */
     box-shadow:
       0 0 0 1px rgba(191,227,255,0.18),
       0 0 60px rgba(127,184,232,0.35),
@@ -106,8 +107,14 @@
        Número menor = mais rápido. Os valores dentro do @keyframes blobShift
        logo abaixo controlam o quão "torto" ele fica em cada momento. */
     animation: blobShift 6s ease-in-out infinite;
+    animation-play-state: paused; /* começa pausado — o JS libera depois da entrada triunfal */
     background:#0b1120;
   }
+  /* Liga o blob depois que a entrada triunfal (fogo + zoom-in) já rolou */
+  .blob-mask.blob-active{ animation-play-state: running; }
+  /* Pausa a distorção do blob enquanto a pessoa está rolando a tela — evita o
+     engasgo, já que "border-radius" é uma propriedade pesada de repintar. */
+  .blob-mask.is-scrolling{ animation-play-state: paused; }
   @keyframes blobShift{
     0%,100%{ border-radius: 68% 32% 58% 42% / 45% 48% 52% 55%; }
     20%{ border-radius: 32% 68% 28% 72% / 65% 30% 70% 35%; }
