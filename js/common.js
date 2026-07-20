@@ -83,3 +83,19 @@ const io = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); } });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
+
+// ---------- Pausar o blob (foto do gelo) durante o scroll, pra não engasgar ----------
+const blobEl = document.querySelector('.blob-mask');
+if (blobEl) {
+  // TEMPO_INICIO_BLOB = quanto tempo (em ms) esperar antes do blob começar a se mexer,
+  // pra não competir com a entrada triunfal (labareda + zoom-in dos botões).
+  const TEMPO_INICIO_BLOB = 1800;
+  setTimeout(() => blobEl.classList.add('blob-active'), TEMPO_INICIO_BLOB);
+
+  let scrollTimer;
+  window.addEventListener('scroll', () => {
+    blobEl.classList.add('is-scrolling');
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => blobEl.classList.remove('is-scrolling'), 150);
+  }, { passive: true });
+}
