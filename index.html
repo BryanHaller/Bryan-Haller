@@ -43,10 +43,6 @@
 </head>
 <body>
 
-<div id="intro">
-  <div class="intro-mark"><span>BRYAN</span><span>HALLER</span></div>
-</div>
-
 <canvas id="fx-canvas"></canvas>
 
 <!-- Menu hambúrguer — presente em todas as páginas -->
@@ -187,14 +183,6 @@ fetch('https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json')
   .catch(() => {
     // Se der algum erro de conexão, o site continua normal, sem travar.
   });
-
-// ---------- Intro ----------
-// Antes esperava o evento "load" (que só dispara depois do iframe do YouTube,
-// fontes e todas as imagens carregarem por completo — daí a demora).
-// Agora dispara assim que o HTML estiver pronto, sem esperar recursos pesados.
-window.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => document.getElementById('intro').classList.add('hide'), 2000);
-});
 </script>
 
 <!-- JS compartilhado com a página sobre.html: faíscas, animação de scroll e menu -->
