@@ -4,185 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="96x96" href="https://bryanhaller.com.br/images/favicon-bryan-haller.png?v=2">
-<title>Bryan Haller | Imprensa &amp; Editorial</title>
-<meta name="description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais do artista Bryan Haller.">
+<title>Imprensa | Bryan Haller</title>
+<meta name="description" content="Matérias, aparições e cobertura de imprensa sobre o cantor e cartomante Bryan Haller.">
+<link rel="canonical" href="https://bryanhaller.com.br/imprensa/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Bryan Haller | Imprensa &amp; Editorial">
-<meta property="og:description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais do artista Bryan Haller.">
+<meta property="og:title" content="Imprensa | Bryan Haller">
+<meta property="og:description" content="Matérias, aparições e cobertura de imprensa sobre o cantor e cartomante Bryan Haller.">
 <meta property="og:image" content="https://bryanhaller.com.br/images/bryan-haller-terno-vinho-retrato-noturno.webp">
+<meta property="og:url" content="https://bryanhaller.com.br/imprensa/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,400&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
-
-<style>
-  .press-hub {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 3rem 1.5rem 6rem;
-  }
-
-  .articles-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-    margin-top: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    .articles-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  .article-card {
-    background: rgba(11, 17, 32, 0.7);
-    border: 1px solid rgba(191, 227, 255, 0.12);
-    border-radius: 20px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
-    text-decoration: none;
-  }
-
-  .article-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(127, 184, 232, 0.15);
-    border-color: rgba(191, 227, 255, 0.3);
-  }
-
-  .card-thumb {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    display: block;
-  }
-
-  .card-body {
-    padding: 1.8rem;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-
-  .card-date {
-    font-size: 0.82rem;
-    color: var(--ice);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 0.6rem;
-    font-weight: 600;
-  }
-
-  .card-title {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 1.35rem;
-    color: var(--frost);
-    line-height: 1.35;
-    margin-bottom: 0.8rem;
-  }
-
-  .card-excerpt {
-    font-size: 0.95rem;
-    color: var(--text-dim);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    flex-grow: 1;
-  }
-
-  .card-link {
-    font-family: 'Fredoka', sans-serif;
-    font-size: 0.95rem;
-    color: var(--gold);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-  }
-</style>
 </head>
-<body>
+<body class="materia-imprensa">
 
-<canvas id="fx-canvas"></canvas>
+<!-- Sem <canvas id="fx-canvas"> aqui de propósito: nas páginas de leitura longa,
+     as faíscas em movimento atrapalham. Fundo sólido, foco no texto. -->
 
 <button id="menu-btn" class="menu-btn" aria-label="Abrir menu"><span></span></button>
 <nav id="site-menu" class="site-menu">
   <a href="/">Início</a>
   <a href="/sobre/">Sobre</a>
-  <a href="/#discografia">Discografia</a>
   <a href="/imprensa/">Imprensa</a>
+  <a href="/#discografia">Discografia</a>
   <a href="mailto:contato@bryanhaller.com.br">Contato</a>
 </nav>
 
 <div class="wrap">
 
-  <section class="bio-hero">
-    <div class="title-flame-wrap">
-      <h1 class="name">IMPRENSA</h1>
-    </div>
-    <p class="role-tag" style="margin-top: 1.5rem;">Clipping &amp; Notícias</p>
-  </section>
+  <header class="imprensa-header">
+    <span class="eyebrow-word reveal">IMPRENSA</span>
+    <h1 class="main-words reveal" style="font-size:clamp(2rem,7vw,3.2rem); line-height:1;">BRYAN HALLER</h1>
+  </header>
 
-  <div class="seam" aria-hidden="true"></div>
+  <div class="imprensa-grid">
 
-  <main class="press-hub reveal">
-    <div class="articles-grid">
+    <a class="imprensa-card reveal" href="/imprensa/bryan-haller-sobre-criacao-conteudo/">
+      <img src="/images/bryan-haller-terno-vinho-retrato-noturno.webp" alt="Bryan Haller de terno vinho no banco traseiro de um carro, na virada de 2026" loading="lazy">
+      <div class="imprensa-card-body">
+        <time datetime="2026-01-05">5 de janeiro de 2026</time>
+        <h2>Bryan Haller Reflete Sobre Desafios da Vida de Criador em Início de 2026</h2>
+      </div>
+    </a>
 
-      <!-- MATÉRIA DE MODA -->
-      <a href="/imprensa/tendencia-terno-vinho-bryan-haller.html" class="article-card">
-        <img src="/images/bryan-haller-terno-vinho-retrato-noturno.webp" alt="Bryan Haller em terno vinho de três peças" class="card-thumb">
-        <div class="card-body">
-          <span class="card-date">5 de Jan.</span>
-          <h2 class="card-title">Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</h2>
-          <p class="card-excerpt">Cantor Bryan Haller aposta em alfaiataria impecável e tom burgundy para as celebrações. Especialistas explicam a escolha do visual.</p>
-          <span class="card-link">Ler matéria completa →</span>
-        </div>
-      </a>
+    <a class="imprensa-card reveal" href="/imprensa/bryan-haller-terno-vinho-2026/">
+      <img src="/images/bryan-haller-terno-vinho-virada-2026.webp" alt="Bryan Haller vestindo terno vinho de três peças, close no rosto sério" loading="lazy">
+      <div class="imprensa-card-body">
+        <time datetime="2026-01-05">5 de janeiro de 2026</time>
+        <h2>Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</h2>
+      </div>
+    </a>
 
-  <main class="press-hub reveal">
-    <div class="articles-grid">
-
-      <!-- MATÉRIA DE MODA (Link apontando para a pasta) -->
-      <a href="/imprensa/tendencia-terno-vinho-bryan-haller/" class="article-card">
-        <img src="/images/bryan-haller-terno-vinho-retrato-noturno.webp" alt="Bryan Haller em terno vinho de três peças" class="card-thumb">
-        <div class="card-body">
-          <span class="card-date">5 de Jan.</span>
-          <h2 class="card-title">Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</h2>
-          <p class="card-excerpt">Cantor Bryan Haller aposta em alfaiataria impecável e tom burgundy para as celebrações. Especialistas explicam a escolha do visual.</p>
-          <span class="card-link">Ler matéria completa →</span>
-        </div>
-      </a>
-<main class="press-hub reveal">
-    <div class="articles-grid">
-      <!-- MATÉRIA DE CARREIRA (Link apontando para a pasta) -->
-      <a href="/imprensa/bryan-haller-desafios-criador-2026/" class="article-card">
-        <img src="/images/bryan-haller-terno-vinho-virada-2026.webp" alt="Bryan Haller em foto marcante no banco traseiro do carro" class="card-thumb">
-        <div class="card-body">
-          <span class="card-date">5 de Jan.</span>
-          <h2 class="card-title">Bryan Haller Reflete Sobre Desafios da Vida de Criador em Início de 2026</h2>
-          <p class="card-excerpt">Cantor Bryan Haller reflete sobre a jornada na internet, foco na música, cartomancia e os bastidores da criação de conteúdo.</p>
-          <span class="card-link">Ler matéria completa →</span>
-        </div>
-      </a>
-
-    </div>
-  </main>
-
+  </div>
 
   <footer>© 2026 Bryan Haller. Todos os direitos reservados.</footer>
 
 </div>
 
-<script>
-fetch('https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json')
-  .then(res => res.json())
-  .then(liveAtivo => { if (liveAtivo === true) document.body.classList.add('is-live'); })
-  .catch(() => {});
-</script>
 <script src="/js/common.js"></script>
-
 </body>
 </html>
