@@ -15,4 +15,27 @@
     <lastmod>2026-07-19</lastmod>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://bryanhaller.com.br/imprensa/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-sobre-criacao-conteudo/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-retrato-noturno.webp</image:loc>
+      <image:title>Bryan Haller Reflete Sobre Desafios da Vida de Criador em Início de 2026</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-terno-vinho-2026/</loc>
+    <lastmod>2026-07-23</lastmod>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-virada-2026.webp</image:loc>
+      <image:title>Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</image:title>
+    </image:image>
+  </url>
 </urlset>
