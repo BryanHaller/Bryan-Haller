@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" sizes="96x96" href="https://bryanhaller.com.br/images/favicon-bryan-haller.png?v=2">
+<title>Imprensa &amp; Blog | Bryan Haller</title>
+<meta name="description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais sobre Bryan Haller.">
+
+<!-- Open Graph / Redes Sociais -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Imprensa &amp; Blog | Bryan Haller">
+<meta property="og:description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais sobre Bryan Haller.">
+<meta property="og:image" content="https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp">
+
+<!-- Google Fonts & CSS compartilhado -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+
+<!-- Estilos específicos da grade de notícias -->
+<style>
+  .press-hub {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .articles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .articles-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .article-card {
+    background: rgba(11, 17, 32, 0.7);
+    border: 1px solid rgba(191, 227, 255, 0.12);
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    text-decoration: none;
+  }
+
+  .article-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(127, 184, 232, 0.15);
+    border-color: rgba(191, 227, 255, 0.3);
+  }
+
+  .card-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-body {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-date {
+    font-size: 0.82rem;
+    color: var(--ice);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  .card-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.35rem;
+    color: var(--frost);
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+  }
+
+  .card-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  .card-link {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 0.95rem;
+    color: var(--gold);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+</style>
+</head>
+<body>
+
+<canvas id="fx-canvas"></canvas>
+
+<!-- Menu hambúrguer -->
+<button id="menu-btn" class="menu-btn" aria-label="Abrir menu"><span></span></button>
+<nav id="site-menu" class="site-menu">
+  <a href="/">Início</a>
+  <a href="/sobre/">Sobre</a>
+  <a href="/#discografia">Discografia</a>
+  <a href="/imprensa/">Imprensa</a>
+  <a href="mailto:contato@bryanhaller.com.br">Contato</a>
+</nav>
+
+<div class="wrap">
+
+  <section class="bio-hero">
+    <div class="title-flame-wrap">
+      <h1 class="name">IMPRENSA</h1>
+    </div>
+    <p class="role-tag" style="margin-top: 1.5rem;">Clipping &amp; Notícias</p>
+  </section>
+
+  <div class="seam" aria-hidden="true"></div>
+
+  <!-- GRADE DE MATÉRIAS -->
+  <main class="press-hub reveal">
+    <div class="articles-grid">
+
+      <!-- CARD 1: Alfaiataria Burgundy -->
+      <a href="/imprensa/look-burgundy.html" class="article-card">
+        <img src="/images/bryan-haller-dentro-bloco-gelo.webp" alt="Bryan Haller em terno vinho de três peças" class="card-thumb">
+        <div class="card-body">
+          <span class="card-date">5 de Jan.</span>
+          <h2 class="card-title">Bryan Haller aposta em alfaiataria impecável e cor burgundy no Ano Novo</h2>
+          <p class="card-excerpt">Cantor aposta em alfaiataria impecável e tom vinho para as celebrações. Especialistas explicam por que a escolha é certeira.</p>
+          <span class="card-link">Ler matéria completa →</span>
+        </div>
+      </a>
+
+      <!-- CARD 2: Virada de Ano & Desabafo -->
+      <a href="/imprensa/desabafo-ano-novo.html" class="article-card">
+        <img src="/images/bryan-haller-dentro-bloco-gelo.webp" alt="Bryan Haller posa no banco traseiro do carro" class="card-thumb">
+        <div class="card-body">
+          <span class="card-date">5 de Jan.</span>
+          <h2 class="card-title">Bryan Haller compartilha looks de Ano Novo e faz desabafo sobre a carreira</h2>
+          <p class="card-excerpt">Cantor e criador de conteúdo reflete sobre a jornada na internet, resiliência e os desafios por trás das câmeras em vídeo emocionante.</p>
+          <span class="card-link">Ler matéria completa →</span>
+        </div>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>© 2026 Bryan Haller. Todos os direitos reservados.</footer>
+
+</div>
+
+<!-- Script MODO LIVE -->
+<script>
+fetch('https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json')
+  .then(res => res.json())
+  .then(liveAtivo => {
+    if (liveAtivo === true) { document.body.classList.add('is-live'); }
+  })
+  .catch(() => {});
+</script>
+
+<script src="/js/common.js"></script>
+
+</body>
+  </html>
+
