@@ -4,22 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" sizes="96x96" href="https://bryanhaller.com.br/images/favicon-bryan-haller.png?v=2">
-<title>Imprensa &amp; Blog | Bryan Haller</title>
-<meta name="description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais sobre Bryan Haller.">
+<title>Bryan Haller | Imprensa &amp; Editorial</title>
+<meta name="description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais do artista Bryan Haller.">
 
-<!-- Open Graph / Redes Sociais -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Imprensa &amp; Blog | Bryan Haller">
-<meta property="og:description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais sobre Bryan Haller.">
-<meta property="og:image" content="https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp">
+<meta property="og:title" content="Bryan Haller | Imprensa &amp; Editorial">
+<meta property="og:description" content="Acompanhe as últimas matérias, editoriais de moda, notícias e comunicados oficiais do artista Bryan Haller.">
+<meta property="og:image" content="https://bryanhaller.com.br/images/bryan-haller-terno-vinho-retrato-noturno.webp">
 
-<!-- Google Fonts & CSS compartilhado -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Manrope:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 
-<!-- Estilos específicos da grade de notícias -->
 <style>
   .press-hub {
     max-width: 1100px;
@@ -111,7 +108,6 @@
 
 <canvas id="fx-canvas"></canvas>
 
-<!-- Menu hambúrguer -->
 <button id="menu-btn" class="menu-btn" aria-label="Abrir menu"><span></span></button>
 <nav id="site-menu" class="site-menu">
   <a href="/">Início</a>
@@ -132,28 +128,27 @@
 
   <div class="seam" aria-hidden="true"></div>
 
-  <!-- GRADE DE MATÉRIAS -->
   <main class="press-hub reveal">
     <div class="articles-grid">
 
-      <!-- CARD 1: Alfaiataria Burgundy -->
-      <a href="/imprensa/look-burgundy.html" class="article-card">
-        <img src="/images/bryan-haller-dentro-bloco-gelo.webp" alt="Bryan Haller em terno vinho de três peças" class="card-thumb">
+      <!-- CARD 1 -->
+      <a href="/imprensa/bryan-haller-look-burgundy.html" class="article-card">
+        <img src="/images/bryan-haller-terno-vinho-retrato-noturno.webp" alt="Bryan Haller em terno vinho de três peças" class="card-thumb">
         <div class="card-body">
           <span class="card-date">5 de Jan.</span>
           <h2 class="card-title">Bryan Haller aposta em alfaiataria impecável e cor burgundy no Ano Novo</h2>
-          <p class="card-excerpt">Cantor aposta em alfaiataria impecável e tom vinho para as celebrações. Especialistas explicam por que a escolha é certeira.</p>
+          <p class="card-excerpt">Cantor Bryan Haller aposta em alfaiataria impecável e tom vinho para as celebrações. Especialistas explicam a escolha.</p>
           <span class="card-link">Ler matéria completa →</span>
         </div>
       </a>
 
-      <!-- CARD 2: Virada de Ano & Desabafo -->
-      <a href="/imprensa/desabafo-ano-novo.html" class="article-card">
-        <img src="/images/bryan-haller-dentro-bloco-gelo.webp" alt="Bryan Haller posa no banco traseiro do carro" class="card-thumb">
+      <!-- CARD 2 -->
+      <a href="/imprensa/bryan-haller-desabafo-ano-novo.html" class="article-card">
+        <img src="/images/bryan-haller-terno-vinho-virada-2026.webp" alt="Bryan Haller em foto marcante no banco traseiro do carro" class="card-thumb">
         <div class="card-body">
           <span class="card-date">5 de Jan.</span>
           <h2 class="card-title">Bryan Haller compartilha looks de Ano Novo e faz desabafo sobre a carreira</h2>
-          <p class="card-excerpt">Cantor e criador de conteúdo reflete sobre a jornada na internet, resiliência e os desafios por trás das câmeras em vídeo emocionante.</p>
+          <p class="card-excerpt">Cantor Bryan Haller reflete sobre a jornada na internet, foco na música, cartomancia e os desafios por trás das câmeras.</p>
           <span class="card-link">Ler matéria completa →</span>
         </div>
       </a>
@@ -165,18 +160,13 @@
 
 </div>
 
-<!-- Script MODO LIVE -->
 <script>
 fetch('https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json')
   .then(res => res.json())
-  .then(liveAtivo => {
-    if (liveAtivo === true) { document.body.classList.add('is-live'); }
-  })
+  .then(liveAtivo => { if (liveAtivo === true) document.body.classList.add('is-live'); })
   .catch(() => {});
 </script>
-
 <script src="/js/common.js"></script>
 
 </body>
-  </html>
-
+</html>
