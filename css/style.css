@@ -91,20 +91,20 @@
     opacity:0; transform:scale(0.92);
     animation: riseIn 1.2s cubic-bezier(.16,.8,.3,1) forwards;
     animation-delay:0.5s;
-    /* Espessura do anel de luz que contorna o blob. Aumente pra deixar mais grosso. */
-    padding: 3px;
-    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
   }
   .portrait-stage::before{
     content:'';
-    position:absolute; inset:0;
-    border-radius: inherit;
+    position:absolute;
+    /* Espessura do brilho que vaza pra fora da borda. Número mais negativo = brilho mais grosso. */
+    inset: -6px;
+    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
     background: conic-gradient(from 0deg,
       transparent 0%,
-      rgba(191,227,255,0.05) 35%,
+      transparent 32%,
       rgba(238,247,255,0.95) 50%,
-      rgba(191,227,255,0.05) 65%,
+      transparent 68%,
       transparent 100%);
+    filter: blur(7px);
     /* Velocidade do anel de luz girando ao redor do blob. Número menor = mais rápido. */
     animation: ringSpin 5s linear infinite;
     z-index:0;
@@ -112,8 +112,8 @@
   @keyframes ringSpin{ to{ transform: rotate(360deg); } }
 
   .blob-mask{
-    position:absolute; inset:3px;
-    border-radius: inherit;
+    position:absolute; inset:0;
+    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
     overflow:hidden;
     contain: paint;
     box-shadow:
