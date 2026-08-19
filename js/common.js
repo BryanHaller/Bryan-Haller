@@ -1,8 +1,27 @@
 /* =====================================================
-   Bryan Haller — JS compartilhado (index.html e sobre.html)
+   Bryan Haller — JS compartilhado (todas as páginas)
    ===================================================== */
 
 // ---------- Menu hambúrguer ----------
+// LISTA DO MENU — é aqui que se mexe pra adicionar/tirar/renomear um botão do menu.
+// Muda uma vez aqui, e atualiza em TODAS as páginas do site automaticamente.
+const MENU_LINKS = [
+  { texto: "Início", url: "/" },
+  { texto: "Sobre", url: "/sobre/" },
+  { texto: "Imprensa", url: "/imprensa/" },
+  { texto: "Discografia", url: "/#discografia" },
+  { texto: "Loja Oficial", url: "https://loja.bryanhaller.com.br", externo: true },
+  { texto: "Contato", url: "mailto:contato@bryanhaller.com.br" },
+];
+
+const siteMenuEl = document.getElementById('site-menu');
+if (siteMenuEl) {
+  siteMenuEl.innerHTML = MENU_LINKS.map(link => {
+    const atributosExtras = link.externo ? ' target="_blank" rel="noopener"' : '';
+    return `<a href="${link.url}"${atributosExtras}>${link.texto}</a>`;
+  }).join('');
+}
+
 const menuBtn = document.getElementById('menu-btn');
 const siteMenu = document.getElementById('site-menu');
 if (menuBtn && siteMenu) {
