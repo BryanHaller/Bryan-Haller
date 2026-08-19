@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bryanhaller.com.br/</loc>
-    <lastmod>2026-07-18</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp</image:loc>
@@ -17,12 +17,12 @@
   </url>
   <url>
     <loc>https://bryanhaller.com.br/imprensa/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-08-19</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://bryanhaller.com.br/imprensa/bryan-haller-sobre-criacao-conteudo/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <priority>0.75</priority>
     <image:image>
       <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-retrato-noturno.webp</image:loc>
@@ -31,11 +31,20 @@
   </url>
   <url>
     <loc>https://bryanhaller.com.br/imprensa/bryan-haller-terno-vinho-2026/</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-01-05</lastmod>
     <priority>0.75</priority>
     <image:image>
       <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-virada-2026.webp</image:loc>
       <image:title>Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-loja-oficial/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <priority>0.75</priority>
+    <image:image>
+      <image:loc>https://bryanhaller.com.br/images/bryan-haller-ensaio-editorial.webp</image:loc>
+      <image:title>Bryan Haller Transforma Referências de Sua Trajetória Artística em Coleção na Nova Loja Oficial</image:title>
     </image:image>
   </url>
 </urlset>
