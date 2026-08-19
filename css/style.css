@@ -91,36 +91,38 @@
     opacity:0; transform:scale(0.92);
     animation: riseIn 1.2s cubic-bezier(.16,.8,.3,1) forwards;
     animation-delay:0.5s;
+    /* Espessura do anel de luz que contorna o blob. Aumente pra deixar mais grosso. */
+    padding: 3px;
+    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
   }
+  .portrait-stage::before{
+    content:'';
+    position:absolute; inset:0;
+    border-radius: inherit;
+    background: conic-gradient(from 0deg,
+      transparent 0%,
+      rgba(191,227,255,0.05) 35%,
+      rgba(238,247,255,0.95) 50%,
+      rgba(191,227,255,0.05) 65%,
+      transparent 100%);
+    /* Velocidade do anel de luz girando ao redor do blob. Número menor = mais rápido. */
+    animation: ringSpin 5s linear infinite;
+    z-index:0;
+  }
+  @keyframes ringSpin{ to{ transform: rotate(360deg); } }
 
   .blob-mask{
-    position:absolute; inset:0;
-    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
+    position:absolute; inset:3px;
+    border-radius: inherit;
     overflow:hidden;
-    contain: paint; /* isola o repaint do blob, sem "vazar" custo pro resto da página */
+    contain: paint;
     box-shadow:
       0 0 0 1px rgba(191,227,255,0.18),
       0 0 60px rgba(127,184,232,0.35),
       0 0 140px rgba(127,184,232,0.18),
       inset 0 0 60px rgba(6,10,20,0.5);
-    /* Velocidade da distorção do blob (a foto do gelo mudando de contorno).
-       Número menor = mais rápido. Os valores dentro do @keyframes blobShift
-       logo abaixo controlam o quão "torto" ele fica em cada momento. */
-    animation: blobShift 6s ease-in-out infinite;
-    animation-play-state: paused; /* começa pausado — o JS libera depois da entrada triunfal */
     background:#0b1120;
-  }
-  /* Liga o blob depois que a entrada triunfal (fogo + zoom-in) já rolou */
-  .blob-mask.blob-active{ animation-play-state: running; }
-  /* Pausa a distorção do blob enquanto a pessoa está rolando a tela — evita o
-     engasgo, já que "border-radius" é uma propriedade pesada de repintar. */
-  .blob-mask.is-scrolling{ animation-play-state: paused; }
-  @keyframes blobShift{
-    0%,100%{ border-radius: 68% 32% 58% 42% / 45% 48% 52% 55%; }
-    20%{ border-radius: 32% 68% 28% 72% / 65% 30% 70% 35%; }
-    40%{ border-radius: 74% 26% 70% 30% / 28% 68% 32% 72%; }
-    60%{ border-radius: 28% 72% 40% 60% / 70% 28% 72% 30%; }
-    80%{ border-radius: 60% 40% 22% 78% / 38% 65% 35% 62%; }
+    z-index:1;
   }
   .blob-mask img{
     width:100%; height:100%; object-fit:cover;
