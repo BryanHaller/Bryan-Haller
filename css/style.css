@@ -92,6 +92,29 @@
     animation: riseIn 1.2s cubic-bezier(.16,.8,.3,1) forwards;
     animation-delay:0.5s;
   }
+  /* A luz: MESMO formato exato do blob (mesmo border-radius), só que ampliada com
+     "scale" (mantém a proporção certinha, sem distorcer os cantos) e borrada.
+     Fica atrás — o blob por cima esconde o meio, só a borda ampliada aparece. */
+  .portrait-stage::before{
+    content:'';
+    position:absolute; inset:0;
+    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
+    background: conic-gradient(from 0deg,
+      transparent 0%, transparent 85%,
+      rgba(238,247,255,0.95) 92%,
+      transparent 100%);
+    filter: blur(5px);
+    /* Quanto a luz "sobra" pra fora do blob. Número maior (tipo 1.08) = brilho mais grosso. */
+    transform: scale(1.05) rotate(0deg);
+    transform-origin: center;
+    /* Velocidade do brilho girando. Número menor = mais rápido. */
+    animation: ringGlow 5s linear infinite;
+    z-index:0;
+  }
+  @keyframes ringGlow{
+    from{ transform: scale(1.05) rotate(0deg); }
+    to{ transform: scale(1.05) rotate(360deg); }
+  }
 
   .blob-mask{
     position:absolute; inset:0;
@@ -104,25 +127,8 @@
       0 0 140px rgba(127,184,232,0.18),
       inset 0 0 60px rgba(6,10,20,0.5);
     background:#0b1120;
+    z-index:1;
   }
-  /* Facho de luz girando POR DENTRO do blob — como o formato do blob já é fixo,
-     o recorte (overflow:hidden) não custa nada extra, e o giro usa "transform",
-     que é o tipo de animação mais leve que existe pro navegador. */
-  .blob-mask::before{
-    content:'';
-    position:absolute;
-    inset:-60%;
-    background: conic-gradient(from 0deg,
-      transparent 0deg, transparent 330deg,
-      rgba(238,247,255,0.55) 350deg,
-      rgba(238,247,255,0.9) 360deg);
-    /* Velocidade do facho de luz. Número menor = mais rápido. */
-    animation: lightSweep 5s linear infinite;
-    mix-blend-mode: screen;
-    pointer-events:none;
-    z-index:2;
-  }
-  @keyframes lightSweep{ to{ transform: rotate(360deg); } }
   .blob-mask img{
     width:100%; height:100%; object-fit:cover;
     display:block;
