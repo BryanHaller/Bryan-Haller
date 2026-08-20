@@ -83,6 +83,13 @@
 
   @keyframes riseIn{ to{ opacity:1; transform:translateY(0); } }
 
+  /* Propriedade animável que controla o ângulo do brilho girando na borda do blob */
+  @property --border-angle{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+
   .portrait-stage{
     position:relative;
     width:min(85vw, 450px);
@@ -92,38 +99,32 @@
     animation: riseIn 1.2s cubic-bezier(.16,.8,.3,1) forwards;
     animation-delay:0.5s;
   }
-  .portrait-stage::before{
-    content:'';
-    position:absolute;
-    /* Espessura do brilho que vaza pra fora da borda. Número mais negativo = brilho mais grosso. */
-    inset: -6px;
-    border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
-    background: conic-gradient(from 0deg,
-      transparent 0%,
-      transparent 32%,
-      rgba(238,247,255,0.95) 50%,
-      transparent 68%,
-      transparent 100%);
-    filter: blur(7px);
-    /* Velocidade do anel de luz girando ao redor do blob. Número menor = mais rápido. */
-    animation: ringSpin 5s linear infinite;
-    z-index:0;
-  }
-  @keyframes ringSpin{ to{ transform: rotate(360deg); } }
 
   .blob-mask{
     position:absolute; inset:0;
     border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
     overflow:hidden;
     contain: paint;
+    box-sizing: border-box;
+    /* Espessura da linha de luz (é uma borda de verdade agora, acompanha o contorno certinho) */
+    border: 2.5px solid transparent;
+    background:
+      linear-gradient(#0b1120, #0b1120) padding-box,
+      conic-gradient(from var(--border-angle),
+        transparent 0%, transparent 80%,
+        rgba(238,247,255,0.5) 88%,
+        rgba(238,247,255,1) 92%,
+        rgba(238,247,255,0.5) 96%,
+        transparent 100%) border-box;
     box-shadow:
-      0 0 0 1px rgba(191,227,255,0.18),
       0 0 60px rgba(127,184,232,0.35),
       0 0 140px rgba(127,184,232,0.18),
       inset 0 0 60px rgba(6,10,20,0.5);
-    background:#0b1120;
+    /* Velocidade da luz girando na borda do blob. Número menor = mais rápido. */
+    animation: borderRotate 5s linear infinite;
     z-index:1;
   }
+  @keyframes borderRotate{ to{ --border-angle: 360deg; } }
   .blob-mask img{
     width:100%; height:100%; object-fit:cover;
     display:block;
