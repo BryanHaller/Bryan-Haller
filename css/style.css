@@ -108,52 +108,20 @@
   /* Facho de luz girando POR DENTRO do blob — como o formato do blob já é fixo,
      o recorte (overflow:hidden) não custa nada extra, e o giro usa "transform",
      que é o tipo de animação mais leve que existe pro navegador. */
- /* Reflexo de luz girando SOMENTE na borda do blob */
-.blob-mask::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  padding:2px;
-
-  border-radius:inherit;
-
-  background:conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 315deg,
-    rgba(238,247,255,0.08) 330deg,
-    rgba(238,247,255,0.75) 350deg,
-    rgba(255,255,255,1) 358deg,
-    rgba(238,247,255,0.08) 360deg
-  );
-
-  /* transforma o pseudo-elemento em um anel */
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite:exclude;
-
-  animation:lightSweep 5s linear infinite;
-
-  pointer-events:none;
-  z-index:2;
-
-  /* deixa o reflexo delicado */
-  filter:drop-shadow(0 0 3px rgba(191,227,255,0.35));
-
-  mix-blend-mode:screen;
-}
-
-@keyframes lightSweep{
-  to{
-    transform:rotate(360deg);
+  .blob-mask::before{
+    content:'';
+    position:absolute;
+    inset:-60%;
+    background: conic-gradient(from 0deg,
+      transparent 0deg, transparent 330deg,
+      rgba(238,247,255,0.55) 350deg,
+      rgba(238,247,255,0.9) 360deg);
+    /* Velocidade do facho de luz. Número menor = mais rápido. */
+    animation: lightSweep 5s linear infinite;
+    mix-blend-mode: screen;
+    pointer-events:none;
+    z-index:2;
   }
-}
   @keyframes lightSweep{ to{ transform: rotate(360deg); } }
   .blob-mask img{
     width:100%; height:100%; object-fit:cover;
@@ -606,4 +574,27 @@
   }
   .materia-header h1{
     font-family:'Fredoka', sans-serif; font-weight:700; color: var(--frost);
-    font
+    font-size:clamp(1.6rem, 5vw, 2.6rem); line-height:1.25; margin:0 0 1.6rem;
+  }
+  .materia-hero-img{
+    width:100%; max-height:60vh; object-fit:cover; object-position: center 15%; border-radius:18px;
+    box-shadow: 0 26px 60px rgba(0,0,0,0.5);
+  }
+  .materia-content{
+    max-width:700px; margin:0 auto; padding: 2.6rem 1.5rem 5rem;
+    font-family:'Manrope', sans-serif; color: var(--text-dim);
+    font-size:1.05rem; line-height:1.85;
+  }
+  .materia-content h2{
+    font-family:'Fredoka', sans-serif; font-weight:600; color: var(--frost);
+    font-size:1.35rem; margin:2.2rem 0 1rem;
+  }
+  .materia-content p{ margin-bottom:1.4rem; }
+  .materia-content img{
+    width:100%; border-radius:14px; margin:1.8rem 0;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  }
+  .materia-content figcaption{
+    font-family:'Manrope', sans-serif; font-size:0.82rem; color: var(--ice-2);
+    opacity:0.75; margin-top:-1.2rem; margin-bottom:1.8rem; text-align:center;
+  }
