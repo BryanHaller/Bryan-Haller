@@ -96,15 +96,15 @@
     content:'';
     position:absolute;
     /* Espessura do brilho que vaza pra fora da borda. Número mais negativo = brilho mais grosso. */
-    inset: -4px;
+    inset: -6px;
     border-radius: 62% 38% 55% 45% / 48% 45% 55% 52%;
     background: conic-gradient(from 0deg,
       transparent 0%,
-      transparent 46%,
+      transparent 32%,
       rgba(238,247,255,0.95) 50%,
-      transparent 54%,
+      transparent 68%,
       transparent 100%);
-    filter: blur(4px);
+    filter: blur(7px);
     /* Velocidade do anel de luz girando ao redor do blob. Número menor = mais rápido. */
     animation: ringSpin 5s linear infinite;
     z-index:0;
