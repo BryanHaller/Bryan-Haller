@@ -47,8 +47,8 @@
   section{ position:relative; }
 
   .hero{
-    min-height:100vh;
-    min-height:100svh; /* evita o "pulo" no celular quando a barra de endereço esconde/aparece */
+    min-height:85vh;
+    min-height:85svh; /* evita o "pulo" no celular quando a barra de endereço esconde/aparece */
     display:flex; flex-direction:column; align-items:center;
     padding: 2vh 6vw 1.2vh;
     text-align:center;
