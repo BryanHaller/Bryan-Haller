@@ -498,26 +498,44 @@
   .site-menu a:hover{ color:#fff; }
 
   /* ---------- Seção "Loja Oficial" (prévia dentro do index.html) ---------- */
-  /* Estilo editorial de moda: foto grande 16:9, texto enxuto, tudo levando pra loja */
+  /* Estilo editorial de grife: foto edge-to-edge (sem borda, sem cantos, sem sombra),
+     tipografia serifada restrita, bastante espaço vazio — referência: Chanel, Gucci, Balenciaga. */
   .loja-teaser{
-    max-width:1100px; margin:0 auto; padding: 6rem 1.5rem 5rem;
+    padding: 6rem 0 6.5rem;
     text-align:center;
+    background: #0a0a0a;
+    border-top: 1px solid rgba(238,247,255,0.08);
+    border-bottom: 1px solid rgba(238,247,255,0.08);
   }
   .loja-photo-link{
-    display:block; width:100%; aspect-ratio:16/9;
-    border-radius:22px; overflow:hidden;
-    box-shadow: 0 30px 80px rgba(0,0,0,0.55);
-    margin-bottom: 2.2rem;
-    transition: transform 0.4s cubic-bezier(.16,.8,.3,1);
+    display:block;
+    /* Trecho que faz a foto "sangrar" até a borda da tela, ignorando o container do site */
+    width:100vw;
+    margin-left: calc(50% - 50vw);
+    aspect-ratio:16/9;
+    overflow:hidden;
   }
-  .loja-photo-link:hover{ transform: translateY(-4px); }
-  .loja-photo-link img{ width:100%; height:100%; object-fit:cover; display:block; }
-  .loja-text .eyebrow-word{ margin-bottom:0.6rem; }
+  .loja-photo-link img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    transition: transform 0.6s cubic-bezier(.16,.8,.3,1);
+  }
+  .loja-photo-link:hover img{ transform: scale(1.02); }
+  .loja-text{ padding: 3.2rem 1.5rem 0; }
+  .loja-text .eyebrow-word{
+    color: var(--frost); letter-spacing:0.4em; margin-bottom:1rem;
+  }
   .loja-tagline{
-    font-family:'Cormorant Garamond', serif; font-style:italic;
-    color: var(--ice); font-size:clamp(1.3rem, 3.5vw, 1.8rem);
-    max-width:520px; margin:0 auto 1.6rem; line-height:1.5;
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:400;
+    color: var(--frost); font-size:clamp(1.4rem, 3.5vw, 2rem);
+    max-width:520px; margin:0 auto 2rem; line-height:1.5;
   }
+  .loja-text .btn{
+    background:transparent; color: var(--frost);
+    border:1px solid rgba(238,247,255,0.4);
+    letter-spacing:0.12em; text-transform:uppercase; font-size:0.85rem;
+    padding: 0.95rem 2.2rem; border-radius:2px;
+  }
+  .loja-text .btn:hover{ background: rgba(238,247,255,0.06); border-color:#fff; }
 
   /* ---------- Seção "Sobre" (prévia curta dentro do index.html) ---------- */
   .sobre-teaser{
