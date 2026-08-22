@@ -336,7 +336,7 @@
   .tarot-link:hover{ transform: translateY(-3px); box-shadow: 0 26px 60px rgba(0,0,0,0.55), 0 0 46px rgba(90,77,120,0.32); }
   /* Altura da foto das cartas (fora da live). A largura fica sempre 100% de propósito,
      pra ela ficar sempre alinhada com o botão de cima — só a altura é pra mexer aqui. */
-  .tarot-link img{ width:100%; max-height:34vh; object-fit:cover; display:block; }
+  .tarot-link img{ width:100%; max-height:26vh; object-fit:cover; display:block; }
   .tarot-link::after{
     content:''; position:absolute; inset:0;
     background: linear-gradient(180deg, transparent 60%, rgba(6,10,20,0.55));
