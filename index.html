@@ -24,31 +24,54 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Bryan Haller",
-  "alternateName": "Marcos Vinícius Valverde Dias",
-  "jobTitle": ["Cantor", "Compositor"],
-  "nationality": "BR",
-  "birthDate": "2005-07-05",
-  "birthPlace": {
-    "@type": "Place",
-    "name": "Osasco, São Paulo, Brasil"
-  },
-  "url": "https://bryanhaller.com.br",
-  "image": "https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp",
-  "sameAs": [
-    "https://open.spotify.com/artist/43btmNTMhZg0gUSYKU0JCQ",
-    "https://www.facebook.com/bryanhalleroficial",
-    "https://www.instagram.com/bryanhalleroficial",
-    "https://www.tiktok.com/@bryanhalleroficial",
-    "https://www.youtube.com/@bryanhalleroficial",
-    "https://www.deezer.com/artist/53462232",
-    "https://music.amazon.com/artists/B07P9QYNR6",
-    "https://music.apple.com/br/artist/1443051020",
-    "https://tidal.com/artist/10539338",
-    "https://music.youtube.com/channel/UCAmNOVXivS_wHHzQze7i1Aw",
-    "https://musicbrainz.org/artist/f2abfd6c-fa79-455c-bfe3-0231db06fea9",
-    "https://www.wikidata.org/wiki/Q141147862"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://bryanhaller.com.br/#person",
+      "name": "Bryan Haller",
+      "alternateName": "Marcos Vinícius Valverde Dias",
+      "jobTitle": ["Cantor", "Compositor"],
+      "nationality": "BR",
+      "birthDate": "2005-07-05",
+      "birthPlace": {
+        "@type": "Place",
+        "name": "Osasco, São Paulo, Brasil"
+      },
+      "url": "https://bryanhaller.com.br",
+      "image": "https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp",
+      "sameAs": [
+        "https://open.spotify.com/artist/43btmNTMhZg0gUSYKU0JCQ",
+        "https://www.facebook.com/bryanhalleroficial",
+        "https://www.instagram.com/bryanhalleroficial",
+        "https://www.tiktok.com/@bryanhalleroficial",
+        "https://www.youtube.com/@bryanhalleroficial",
+        "https://www.deezer.com/artist/53462232",
+        "https://music.amazon.com/artists/B07P9QYNR6",
+        "https://music.apple.com/br/artist/1443051020",
+        "https://tidal.com/artist/10539338",
+        "https://music.youtube.com/channel/UCAmNOVXivS_wHHzQze7i1Aw",
+        "https://musicbrainz.org/artist/f2abfd6c-fa79-455c-bfe3-0231db06fea9",
+        "https://www.wikidata.org/wiki/Q141147862"
+      ]
+    },
+    {
+      "@type": "MusicGroup",
+      "@id": "https://bryanhaller.com.br/#musicgroup",
+      "name": "Bryan Haller",
+      "genre": ["Dark Pop", "Indie Pop", "Eletrônica"],
+      "url": "https://bryanhaller.com.br",
+      "image": "https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp",
+      "member": { "@id": "https://bryanhaller.com.br/#person" },
+      "sameAs": [
+        "https://open.spotify.com/artist/43btmNTMhZg0gUSYKU0JCQ",
+        "https://www.deezer.com/artist/53462232",
+        "https://music.amazon.com/artists/B07P9QYNR6",
+        "https://music.apple.com/br/artist/1443051020",
+        "https://tidal.com/artist/10539338",
+        "https://music.youtube.com/channel/UCAmNOVXivS_wHHzQze7i1Aw",
+        "https://musicbrainz.org/artist/f2abfd6c-fa79-455c-bfe3-0231db06fea9"
+      ]
+    }
   ]
 }
 </script>
