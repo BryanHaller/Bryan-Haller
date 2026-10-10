@@ -6,3 +6,6 @@ Allow: /
 User-agent: Googlebot-Image
 Disallow: /images/739284651027.webp
 Disallow: /images/modelos-home-roupas-bryan-haller.webp
+
+# Caminho oficial do Sitemap para os buscadores
+Sitemap: https://bryanhaller.com.br/sitemap.xml
