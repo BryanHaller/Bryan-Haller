@@ -1,50 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Home -->
   <url>
     <loc>https://bryanhaller.com.br/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://bryanhaller.com.br/images/bryan-haller-dentro-bloco-gelo.webp</image:loc>
-      <image:title>Bryan Haller</image:title>
+      <image:title>Bryan Haller | Site Oficial</image:title>
     </image:image>
   </url>
+
+  <!-- Sobre -->
   <url>
     <loc>https://bryanhaller.com.br/sobre/</loc>
     <lastmod>2026-07-19</lastmod>
     <priority>0.8</priority>
   </url>
+
+  <!-- Hub de Imprensa -->
   <url>
     <loc>https://bryanhaller.com.br/imprensa/</loc>
-    <lastmod>2026-08-19</lastmod>
+    <lastmod>2026-10-06</lastmod>
     <priority>0.7</priority>
   </url>
+
+  <!-- Matéria: Back to Black -->
   <url>
-    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-sobre-criacao-conteudo/</loc>
-    <lastmod>2026-01-05</lastmod>
-    <priority>0.75</priority>
+    <loc>https://bryanhaller.com.br/imprensa/back-to-black-nova-voz/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <priority>0.6</priority>
     <image:image>
-      <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-retrato-noturno.webp</image:loc>
-      <image:title>Bryan Haller Reflete Sobre Desafios da Vida de Criador em Início de 2026</image:title>
+      <image:loc>https://bryanhaller.com.br/images/bryan-haller-back-to-black-capa-oficial.webp</image:loc>
+      <image:title>Bryan Haller Redescobre a Própria Voz em Releitura de Back to Black</image:title>
     </image:image>
   </url>
-  <url>
-    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-terno-vinho-2026/</loc>
-    <lastmod>2026-01-05</lastmod>
-    <priority>0.75</priority>
-    <image:image>
-      <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-virada-2026.webp</image:loc>
-      <image:title>Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</image:title>
-    </image:image>
-  </url>
+
+  <!-- Matéria: Loja Oficial -->
   <url>
     <loc>https://bryanhaller.com.br/imprensa/bryan-haller-loja-oficial/</loc>
     <lastmod>2026-08-19</lastmod>
-    <priority>0.75</priority>
+    <priority>0.6</priority>
     <image:image>
       <image:loc>https://bryanhaller.com.br/images/bryan-haller-ensaio-editorial.webp</image:loc>
       <image:title>Bryan Haller Transforma Referências de Sua Trajetória Artística em Coleção na Nova Loja Oficial</image:title>
     </image:image>
   </url>
+
+  <!-- Matéria: Criador de Conteúdo -->
+  <url>
+    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-sobre-criacao-conteudo/</loc>
+    <lastmod>2026-01-05</lastmod>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-retrato-noturno.webp</image:loc>
+      <image:title>Bryan Haller Reflete Sobre Desafios da Vida de Criador em Início de 2026</image:title>
+    </image:image>
+  </url>
+
+  <!-- Matéria: Terno Vinho -->
+  <url>
+    <loc>https://bryanhaller.com.br/imprensa/bryan-haller-terno-vinho-2026/</loc>
+    <lastmod>2026-01-05</lastmod>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://bryanhaller.com.br/images/bryan-haller-terno-vinho-virada-2026.webp</image:loc>
+      <image:title>Entenda a Tendência do Terno Vinho que Bryan Haller Usou na Virada de 2026</image:title>
+    </image:image>
+  </url>
+
 </urlset>
