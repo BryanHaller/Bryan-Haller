@@ -8,7 +8,6 @@
 const MENU_LINKS = [
   { texto: "Início", url: "/" },
   { texto: "Sobre", url: "/sobre/" },
-  { texto: "Tarô", url: "/tarot/" },
   { texto: "Imprensa", url: "/imprensa/" },
   { texto: "Discografia", url: "/#discografia" },
   { texto: "Loja Merch", url: "https://loja.bryanhaller.com.br", externo: true },
