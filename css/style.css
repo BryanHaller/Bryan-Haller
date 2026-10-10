@@ -317,8 +317,8 @@
 
   /* Setinhas ao lado de "OUÇA", reaproveitando o espaço que o título já ocupa */
   .disco-title .ouca-line{ display:flex; align-items:center; justify-content:center; gap:0.7rem; }
-  .ouca-arrow{ opacity:0.6; animation: chevronPulse 1.8s ease-in-out infinite; }
-  .ouca-arrow:last-child{ animation-delay:0.3s; }
+  .ouca-arrow{ opacity:0.6; animation: chevronPulse 1.8s ease-in-out infinite; animation-delay:0s; }
+  .ouca-arrow:last-child{ animation-delay:0s; }
 
   /* ---------- Contato & Publicidade (agora perto do rodapé, não mais no hero) ---------- */
   .contato-final{
@@ -451,10 +451,8 @@
   .track-name{
     font-family:'Cormorant Garamond', serif; font-size:clamp(2rem, 6vw, 2.8rem);
     font-style:italic; color:var(--frost); margin-bottom:2.2rem;
-  text-align: left; /* Adicione esta linha */
-}
-
-
+    text-align: left;
+  }
 
   .listen-btn{ margin: 3.5rem auto 0; }
 
@@ -509,8 +507,6 @@
   .site-menu a:hover{ color:#fff; }
 
   /* ---------- Seção "Loja Oficial" (prévia dentro do index.html) ---------- */
-  /* Estilo editorial de grife: foto edge-to-edge (sem borda, sem cantos, sem sombra),
-     tipografia serifada restrita, bastante espaço vazio — referência: Chanel, Gucci, Balenciaga. */
   .loja-teaser{
     padding: 6rem 0 6.5rem;
     text-align:center;
@@ -520,7 +516,6 @@
   }
   .loja-photo-link{
     display:block;
-    /* Trecho que faz a foto "sangrar" até a borda da tela, ignorando o container do site */
     width:100vw;
     margin-left: calc(50% - 50vw);
     aspect-ratio:16/9;
@@ -609,7 +604,6 @@
   }
 
   /* ---------- Imprensa: página da matéria ---------- */
-  /* Fundo sólido, sem faíscas por trás — em texto longo, o movimento atrapalha a leitura */
   body.materia-imprensa{ background: var(--void); }
   .materia-header{ max-width:820px; margin:0 auto; padding:6rem 1.5rem 0; text-align:center; }
   .materia-header time{
