@@ -40,6 +40,40 @@
 <!-- CSS compartilhado com a página sobre.html -->
 <link rel="stylesheet" href="/css/style.css">
 
+<style>
+/* Estilo customizado para o botão em Dourado Velho com Pulsar e Brilho Natural */
+.btn-gold-pulse {
+  background: linear-gradient(135deg, #c5a059 0%, #9e7b3b 100%) !important;
+  color: #000000 !important;
+  font-weight: 700 !important;
+  border: 1px solid #e2c178 !important;
+  box-shadow: 0 0 15px rgba(197, 160, 89, 0.4);
+  animation: pulseGold 2.5s infinite ease-in-out;
+  transition: all 0.3s ease;
+}
+
+.btn-gold-pulse:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #b38f40 100%) !important;
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.7) !important;
+  transform: translateY(-2px);
+}
+
+@keyframes pulseGold {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 22px rgba(212, 175, 55, 0.7);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -99,12 +133,12 @@
     </div>
 
     <div class="track-block">
-      <p class="track-name reveal">Homem Torto</p>
+      <p class="track-name reveal">Back to Black</p>
 
       <div class="video-container reveal" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px;">
         <iframe
-          src="https://www.youtube-nocookie.com/embed/M472hIevg8g"
-          title="Homem Torto - Kamaitachi (Bryan Haller Cover)"
+          src="https://www.youtube-nocookie.com/embed/gBw3jq6kPVo"
+          title="Back to Black - Bryan Haller"
           referrerpolicy="strict-origin-when-cross-origin"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -113,7 +147,7 @@
         </iframe>
       </div>
 
-      <a class="btn btn-primary listen-btn reveal" href="https://youtu.be/M472hIevg8g" target="_blank" rel="noopener">Ouça Agora →</a>
+      <a class="btn btn-primary listen-btn btn-gold-pulse reveal" href="https://bryanhaller.com.br/backtoblack" target="_blank" rel="noopener">OUÇA AGORA / PRÉ-SAVE →</a>
 
       <div class="social-row">
         <a class="social-icon" href="https://instagram.com/bryanhalleroficial" target="_blank" rel="noopener" aria-label="Instagram de Bryan Haller">
