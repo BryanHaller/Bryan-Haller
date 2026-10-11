@@ -41,6 +41,11 @@
 <link rel="stylesheet" href="/css/style.css">
 
 <style>
+/* Ajuste para centralizar perfeitamente no player ao clicar no título OUÇA BRYAN HALLER */
+#player-single {
+  scroll-margin-top: 12vh;
+}
+
 /* Estilo customizado para o botão em Dourado Velho com Pulsar e Brilho Natural */
 .btn-gold-pulse {
   background: linear-gradient(135deg, #c5a059 0%, #9e7b3b 100%) !important;
@@ -117,12 +122,14 @@
 
   <section class="disco-section" id="discografia">
     <h2 class="disco-title">
-      <span class="eyebrow-word ouca-line">
-        <svg class="ouca-arrow" width="14" height="9" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        OUÇA
-        <svg class="ouca-arrow" width="14" height="9" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-      </span>
-      <span class="main-words">BRYAN HALLER</span>
+      <a href="#player-single" style="text-decoration: none; color: inherit; display: inline-block; cursor: pointer;">
+        <span class="eyebrow-word ouca-line">
+          <svg class="ouca-arrow" width="14" height="9" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          OUÇA
+          <svg class="ouca-arrow" width="14" height="9" viewBox="0 0 20 12" fill="none"><path d="M1 1L10 10L19 1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+        <span class="main-words">BRYAN HALLER</span>
+      </a>
     </h2>
 
     <div class="torn-photo reveal">
@@ -132,7 +139,7 @@
       </svg>
     </div>
 
-    <div class="track-block">
+    <div class="track-block" id="player-single">
       <p class="track-name reveal">Back to Black</p>
 
       <div class="video-container reveal" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 8px;">
