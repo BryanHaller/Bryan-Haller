@@ -77,6 +77,52 @@
     box-shadow: 0 0 12px rgba(197, 160, 89, 0.4);
   }
 }
+
+/* =====================================================
+   MODO LIVE — botão de consulta vira vermelho com REC
+   (ativado pelo script do Firebase lá embaixo)
+   ===================================================== */
+#consulta-btn.btn-live-rec {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #e11d2e 0%, #a30d1a 100%);
+  color: #ffffff;
+  border: 1px solid #ff5a67;
+  box-shadow: 0 0 18px rgba(225, 29, 46, 0.55);
+  animation: pulseLive 1.6s infinite ease-in-out;
+}
+
+/* Desliga o brilho dourado que passava por cima do botão */
+#consulta-btn.btn-live-rec::after {
+  display: none;
+}
+
+#consulta-btn.btn-live-rec:hover {
+  background: linear-gradient(135deg, #ff2d40 0%, #c4101f 100%);
+  box-shadow: 0 0 30px rgba(255, 45, 64, 0.85);
+}
+
+.rec-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px #ffffff;
+  animation: recBlink 1s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+@keyframes pulseLive {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.05); }
+}
+
+@keyframes recBlink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.2; }
+}
 </style>
 
 </head>
@@ -208,19 +254,24 @@
 
 <!-- ===================================================== -->
 <!-- EQUIPE: não precisa mais mexer aqui!                    -->
-<!-- O modo live agora é ativado pelo painel modolive.html.  -->
+<!-- O modo live é ativado pelo painel modolive.html.        -->
 <!-- ===================================================== -->
 <script>
 // =====================================================
 //  MODO LIVE — lido automaticamente do Firebase.
 //  Quem liga/desliga é o painel "modolive.html".
+//  Quando a live está ativa, o botão dourado de consulta
+//  vira vermelho (REC) com o texto de pergunta na live.
+//  O link continua sendo o mesmo do WhatsApp.
+//  OBS: não usamos mais body.is-live, pra o layout não descer.
 // =====================================================
 fetch('https://bryanhaller-site-default-rtdb.firebaseio.com/liveAtivo.json')
   .then(res => res.json())
   .then(liveAtivo => {
     if (liveAtivo === true) {
-      document.body.classList.add('is-live');
-      document.getElementById('consulta-btn').textContent = 'Consulta Completa';
+      const btn = document.getElementById('consulta-btn');
+      btn.innerHTML = '<span class="rec-dot"></span><span>Clique e faça sua pergunta na live</span>';
+      btn.classList.add('btn-live-rec');
     }
   })
   .catch(() => {
